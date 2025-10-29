@@ -1,25 +1,25 @@
-import { GetStaticPaths } from "next";
+// import { GetStaticPaths } from "next";
 import { CharacterCard } from "./ui/character-card/character-card";
 import prisma from "./lib/prisma";
 
-export const getStaticPaths = (async () => {
-  return {
-    paths: [
-      {
-        params: {
-          slug: "listing",
-        },
-      }, // See the "paths" section below
-      {
-        params: {
-          slug: "character",
-          id: "1",
-        },
-      },
-    ],
-    fallback: true, // false or "blocking"
-  };
-}) satisfies GetStaticPaths;
+// export const getStaticPaths = (async () => {
+//   return {
+//     paths: [
+//       {
+//         params: {
+//           slug: "listing",
+//         },
+//       }, // See the "paths" section below
+//       {
+//         params: {
+//           slug: "character",
+//           id: "1",
+//         },
+//       },
+//     ],
+//     fallback: true, // false or "blocking"
+//   };
+// }) satisfies GetStaticPaths;
 
 export default async function Home() {
   const favorites = await prisma.favorite.findMany();
