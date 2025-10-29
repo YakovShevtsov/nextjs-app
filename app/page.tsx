@@ -36,17 +36,25 @@ export default async function Home() {
       <h1 className="text-2xl font-bold text-center text-amber-300 uppercase">
         Favorites:
       </h1>
-      {favorites.map((favorite: any) => (
-        <CharacterCard
-          key={favorite.id}
-          name={favorite.name}
-          species={favorite.species}
-          type={favorite.type}
-          status={favorite.status}
-          id={favorite.id}
-          isActive={false}
-        />
-      ))}
+      {favorites.map(
+        (favorite: {
+          id: number;
+          name: string;
+          species: string;
+          type: string;
+          status: string;
+        }) => (
+          <CharacterCard
+            key={favorite.id}
+            name={favorite.name}
+            species={favorite.species}
+            type={favorite.type}
+            status={favorite.status}
+            id={favorite.id}
+            isActive={false}
+          />
+        )
+      )}
     </main>
   );
 }
