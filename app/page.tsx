@@ -21,6 +21,8 @@ import prisma from "./lib/prisma";
 //   };
 // }) satisfies GetStaticPaths;
 
+export const revalidate = 0;
+
 export default async function Home() {
   const favorites = await prisma.favorite.findMany();
   return (
